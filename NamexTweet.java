@@ -17,8 +17,8 @@ import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 
 public class NamexTweet {
-    private final static String CONSUMER_KEY = "ylTZG5CgPkDnw9McXdlNsPKCW";
-    private final static String CONSUMER_KEY_SECRET = "55rIdKXAQ4SKRz0P5i7WUcyj1LjUE5Z0Mru7lhhbOu1cm894F8";
+    private final static String CONSUMER_KEY = "CsBDJXhNIg9zFWBMTvno70kDK";
+    private final static String CONSUMER_KEY_SECRET = "V0kWtXDQd4uzUbI1qmkzAOhKaG26iOUa30SxmQlGRX8hNKycC3";
 
     public void start() throws TwitterException, IOException {
 
@@ -34,7 +34,7 @@ public class NamexTweet {
 	twitter.setOAuthAccessToken(oathAccessToken);
 	// end of difference
 
-	twitter.updateStatus("Happy Holiday");
+	twitter.updateStatus("Hi, im updating status again from Namex Tweet for Demo");
 
 	System.out.println("\nMy Timeline:");
 
@@ -52,12 +52,12 @@ public class NamexTweet {
     private String getSavedAccessTokenSecret() {
 	// consider this is method to get your previously saved Access Token
 	// Secret
-	return "wLfOl2IHSAA6kpwClz8XDiOP5Jr9fVBX7HJjLxJ3brHRQ";
+	return "ACLxgGlTT8pTtl5KWcKheGc5pyj88pJncJCT2Ma3H55Jy";
     }
 
     private String getSavedAccessToken() {
 	// consider this is method to get your previously saved Access Token
-	return "2287839656-PdgW1LREWNkGI8hFd7rLGS8VTxRk748awu1cd27";
+	return "2287839656-zKfwisLS12v3XXprINHayu5w2RXf4purr3FuNlF";
     }
 
     public static void main(String[] args) throws Exception {
