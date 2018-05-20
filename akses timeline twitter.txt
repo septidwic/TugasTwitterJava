@@ -1,0 +1,136 @@
+//unduh twitter4j di http://twitter4j.org/en/index.html
+//masukkan ke project
+//twitter4j-async-a.b.c.jar
+//    twitter4j-core-a.b.c.jar
+//    twitter4j-media-support-a.b.c.jar
+//    twitter4j-stream-a.b.c.jar
+//ubah consumer key, consumer key secret, access token, access token secret sesuai akun twitter anda
+
+
+import java.io.IOException;
+
+import twitter4j.ResponseList;
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.auth.AccessToken;
+
+public class NamexTweet {
+    private final static String CONSUMER_KEY = "CsBDJXhNIg9zFWBMTvno70kDK";
+    private final static String CONSUMER_KEY_SECRET = "V0kWtXDQd4uzUbI1qmkzAOhKaG26iOUa30SxmQlGRX8hNKycC3";
+
+    public void start() throws TwitterException, IOException {
+
+	Twitter twitter = new TwitterFactory().getInstance();
+	twitter.setOAuthConsumer(CONSUMER_KEY, CONSUMER_KEY_SECRET);
+
+	// here's the difference
+	String accessToken = getSavedAccessToken();
+	String accessTokenSecret = getSavedAccessTokenSecret();
+	AccessToken oathAccessToken = new AccessToken(accessToken,
+		accessTokenSecret);
+
+	twitter.setOAuthAccessToken(oathAccessToken);
+	// end of difference
+
+	twitter.updateStatus("Hi, im updating status again from Namex Tweet for Demo");
+
+	System.out.println("\nMy Timeline:");
+
+	// I'm reading your timeline
+	ResponseList<Status> list = twitter.getHomeTimeline();
+	for (Status each : list) {
+
+	    System.out.println("Sent by: @" + each.getUser().getScreenName()
+		    + " - " + each.getUser().getName() + "\n" + each.getText()
+		    + "\n");
+	}
+
+    }
+
+    private String getSavedAccessTokenSecret() {
+	// consider this is method to get your previously saved Access Token
+	// Secret
+	return "ACLxgGlTT8pTtl5KWcKheGc5pyj88pJncJCT2Ma3H55Jy";
+    }
+
+    private String getSavedAccessToken() {
+	// consider this is method to get your previously saved Access Token
+	return "2287839656-zKfwisLS12v3XXprINHayu5w2RXf4purr3FuNlF";
+    }
+
+    public static void main(String[] args) throws Exception {
+	new NamexTweet().start();
+    }
+}
+
+
+
+
+
+Output timeline :
+My Timeline:
+Sent by: @voaindonesia - VOA Indonesia
+Presiden AS dan Korsel Bicarakan Pertemuan Puncak AS-Korut Juni https://t.co/BvqRbngxKc https://t.co/bSXpMdXxBj
+
+Sent by: @KamusCewek - Kamus Cewek
+Cewek yg suka ngambek, marah, bete, & nyuekin lu, kalo lu sabar ngadepin dia, lo jd orang yg slalu dia sayang, cari, & butuhin. Percayadeh
+
+Sent by: @QURANdanSUNNAH - ? QURANdanSUNNAH
+Apakah ini pertanda imanku semakin tebal, karena akhir-akhir ini aku kok selalu merindukan adzan magrib ? #SelamatBerbukaPuasaSemuanya
+
+Sent by: @marioteguh - Mario Teguh
+Aamiin ... ??? https://t.co/lsZoqYHa1S
+
+Sent by: @voaindonesia - VOA Indonesia
+Gugurnya Sang Petugas Pengamanan, Pahlawan Kemanusiaan Korban Bom Gereja https://t.co/9gyJnwcqXy https://t.co/YhLO66hK2z
+
+Sent by: @QURANdanSUNNAH - ? QURANdanSUNNAH
+?? ????? ???? ???? ? ?? ???? ???? ????
+
+Siapa yg tawadhu, niscaya Allah memuliakannya. Dan siapa yg sombong, niscay… https://t.co/viClYiUDyu
+
+Sent by: @kemkominfo - Kementerian Kominfo
+RT @jokowi: Mari kita maknai hari kebangkitan nasional dg kesadaran kita bangsa yg besar, bangsa pemenang, yg bisa makmur dan sejajar dg ba…
+
+Sent by: @QURANdanSUNNAH - ? QURANdanSUNNAH
+?????? ????? ???????? ????????? ??????????? ???????? ????????? ??????? ???? ??????????
+
+“Barangsiapa yang beriman k… https://t.co/SOG3sc1Vww
+
+Sent by: @voaindonesia - VOA Indonesia
+Operasi Teritorial TNI Bangun 71 Unit Rumah Bagi Warga Tidak Mampu Di Poso, Sulawesi Tengah https://t.co/D5K37oQ1bd https://t.co/w2tzCuYDmv
+
+Sent by: @KamusCewek - Kamus Cewek
+Jangan jadi cewek pengemis perhatian atau cowok itu bakal ngerasa penting seakan lo bener-bener butuh dia.
+
+Sent by: @KickAndyShow - Kick Andy Show
+Slmt utk kalian yg mnjwb "LIMA" utk kuis twitter Sabtu dgn cepat&tepat @rifadhil @bobkecill @yuswanda @farukamin23… https://t.co/4xzZ2Gzagl
+
+Sent by: @voaindonesia - VOA Indonesia
+Tidak Yakin pada Pemilu, Arus Emigran Venezuela Lintasi Perbatasan https://t.co/ugTWq4P4bf https://t.co/cFlG9CpFEo
+
+Sent by: @kemkominfo - Kementerian Kominfo
+#Harkitnas2018 https://t.co/3Q4Xj79aSU
+
+Sent by: @marioteguh - Mario Teguh
+Anda setuju? ??? https://t.co/umrHmy9BUU
+
+Sent by: @kemkominfo - Kementerian Kominfo
+Mari bangkit dari ketertinggalan terhadap bangsa-bangsa lain dengan cara tidak buang-buang waktu dan energi, bertik… https://t.co/6qUTgfdUNT
+
+Sent by: @voaindonesia - VOA Indonesia
+Myanmar Pilih Ulat Sutra Dibanding Tanaman Candu https://t.co/UvMFNgpaCF https://t.co/pu029wAYAX
+
+Sent by: @voaindonesia - VOA Indonesia
+Ibukota Negara Bagian Ohio Luncurkan Sistem Operasi “Kota Pintar” yang Unik https://t.co/OrPz2B1d8m https://t.co/AfCOpFJixR
+
+Sent by: @mulligan - Brenden Mulligan
+This is innovating across the entire customer experience. More convenient to customers, keeps simple stuff out of s… https://t.co/gjgxXcWy7q
+
+Sent by: @KamusCewek - Kamus Cewek
+Cewek itu apa-apa pasti ditahan. Sakit hati ditahan, kecewa ditahan, cemburu ditahan. Ujung-ujungnya cuma air mata yang tak bisa dia tahan.
+
+Sent by: @marioteguh - Mario Teguh
+Kita sependapat? ??? https://t.co/oeoLlCfNbO
